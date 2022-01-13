@@ -11,6 +11,10 @@ import org.junit.Test;
 public class PaginationHelperTestNotHappy {
 	PaginationHelper<String> helper;
 
+	/*
+	* Incorrect parameterization of PaginationHelper constructor
+	*/
+
 	@Test(expected = Error.class)
 	@DisplayName("PaginationHelper class instantiation Negative case#1")
 	public void setUp1() {
@@ -31,6 +35,10 @@ public class PaginationHelperTestNotHappy {
 		helper = new PaginationHelper<>();
 	}
 
+	/*
+	* Test to ensure what happens when size zero list is as sent as input
+	*/
+
 	@Test
 	@DisplayName("PaginationHelper class instantiation size zero list input")
 	public void setUp4() {
@@ -41,12 +49,20 @@ public class PaginationHelperTestNotHappy {
 		assertEquals(0, helper.pageCount());
 	}
 	
+	/*
+	* Test to see the exception when class instance is not instantiated
+	*/
+
 	@Test(expected = NullPointerException.class)
-	@DisplayName("PaginationHelper class Not instantiated")
+	@DisplayName("PaginationHelper class instance Not instantiated")
 	public void setUp5() {
 		helper.itemCount();
 		helper.pageCount();
 	}
+
+	/*
+	* Incorrect parameterization of pageItemCount method - type and number
+	*/
 	
 	@Test(expected = Error.class)
 	@DisplayName("PageItemCount Method Negative case")
@@ -55,9 +71,13 @@ public class PaginationHelperTestNotHappy {
 		List<String> list = new ArrayList<>(Arrays.asList(strList));
 		this.helper = new PaginationHelper<>(list, 4);
 		helper.pageItemCount("a");
-		helper.pageIndex();
+		helper.pageItemCount();
 	}
 	
+	/*
+	* Incorrect parameterization of pageIndex method - type and number
+	*/
+
 	@Test(expected = Error.class)
 	@DisplayName("PageIndex Method Negative case")
 	public void testPageIndexNegative() {
