@@ -1,13 +1,14 @@
 package com.yuvaraj.pagination_helper;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.DisplayName;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PaginationHelperTest {
+public class PaginationHelperTestHappy {
 	PaginationHelper<String> helper;
 
 	/*
@@ -22,16 +23,19 @@ public class PaginationHelperTest {
 	}
 
 	@Test
+	@DisplayName("ItemCount Method Positive case")
 	public void testItemCount() {
 		assertEquals(6, this.helper.itemCount());
 	}
 
 	@Test
+	@DisplayName("PageCount Method Positive case")
 	public void testPageCount() {
 		assertEquals(2, this.helper.pageCount());
 	}
 
 	@Test
+	@DisplayName("PageItemCount Method Positive cases")
 	public void testPageItemCount() {
 		assertEquals(4, this.helper.pageItemCount(0));
 		assertEquals(2, this.helper.pageItemCount(1));
@@ -40,6 +44,7 @@ public class PaginationHelperTest {
 	}
 
 	@Test
+	@DisplayName("PageIndex Method Positive cases")
 	public void testPageIndex() {
 		assertEquals(1, this.helper.pageIndex(5));
 		assertEquals(0, this.helper.pageIndex(2));
